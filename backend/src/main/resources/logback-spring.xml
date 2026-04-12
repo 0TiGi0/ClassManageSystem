@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--配置文件根节点-->
+<configuration>
+
+    <!--添加一项输出配置（输出到控制台）-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--使用的输出方式-->
+        <target>System.out</target>
+        <!--配置该输出器-->
+        <encoder>
+            <!--输出格式-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(%logger{36}) [%thread] :
+                %highlight(%msg%n)
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!--添加一项输出配置（输出到文件）-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--输出到文件的路径-->
+        <file>log/log.log</file>
+        <!--配置该输出器-->
+        <encoder>
+            <!--输出格式-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} [%thread] : %msg%n</pattern>
+            <!--输出编码-->
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <!--文件压缩分卷设置-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件压缩包命名设置-->
+            <fileNamePattern>Data-%i-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <!--日志文件最大容量设置-->
+            <maxFileSize>1MB</maxFileSize>
+            <!--最多保留30天-->
+            <maxHistory>30</maxHistory>
+            <!--总日志容量上限20GB-->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!--控制日志输出-->
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

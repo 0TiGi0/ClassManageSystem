@@ -1,0 +1,30 @@
+2026-04-12 19:34:56.300 INFO  com.xiaokui.BackendApplication [restartedMain] : Starting BackendApplication using Java 25.0.2 with PID 4152 (F:\Code\项目\class-manage-system\backend\target\classes started by Undefined in F:\Code\项目\class-manage-system\backend)
+2026-04-12 19:34:56.301 INFO  com.xiaokui.BackendApplication [restartedMain] : No active profile set, falling back to 1 default profile: "default"
+2026-04-12 19:34:56.327 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-12 19:34:56.327 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-12 19:34:56.629 WARN  o.m.s.mapper.ClassPathMapperScanner [restartedMain] : No MyBatis mapper was found in '[com.xiaokui.mapper]' package. Please check your configuration.
+2026-04-12 19:34:56.792 INFO  o.s.boot.tomcat.TomcatWebServer [restartedMain] : Tomcat initialized with port 8080 (http)
+2026-04-12 19:34:56.800 INFO  o.a.coyote.http11.Http11NioProtocol [restartedMain] : Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-12 19:34:56.801 INFO  o.a.catalina.core.StandardService [restartedMain] : Starting service [Tomcat]
+2026-04-12 19:34:56.801 INFO  o.a.catalina.core.StandardEngine [restartedMain] : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-12 19:34:56.837 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [restartedMain] : Root WebApplicationContext: initialization completed in 510 ms
+2026-04-12 19:34:57.080 INFO  o.a.coyote.http11.Http11NioProtocol [restartedMain] : Starting ProtocolHandler ["http-nio-8080"]
+2026-04-12 19:34:57.091 INFO  o.s.boot.tomcat.TomcatWebServer [restartedMain] : Tomcat started on port 8080 (http) with context path '/'
+2026-04-12 19:34:57.094 INFO  com.xiaokui.BackendApplication [restartedMain] : Started BackendApplication in 1.049 seconds (process running for 1.446)
+2026-04-12 19:35:09.241 INFO  o.s.boot.tomcat.GracefulShutdown [SpringApplicationShutdownHook] : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-12 19:35:09.247 INFO  o.s.boot.tomcat.GracefulShutdown [tomcat-shutdown] : Graceful shutdown complete
+2026-04-12 19:35:12.963 INFO  com.xiaokui.BackendApplication [restartedMain] : Starting BackendApplication using Java 25.0.2 with PID 4192 (F:\Code\项目\class-manage-system\backend\target\classes started by Undefined in F:\Code\项目\class-manage-system\backend)
+2026-04-12 19:35:12.964 INFO  com.xiaokui.BackendApplication [restartedMain] : No active profile set, falling back to 1 default profile: "default"
+2026-04-12 19:35:12.989 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-12 19:35:12.990 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [restartedMain] : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-12 19:35:13.310 WARN  o.m.s.mapper.ClassPathMapperScanner [restartedMain] : No MyBatis mapper was found in '[com.xiaokui.mapper]' package. Please check your configuration.
+2026-04-12 19:35:13.469 INFO  o.s.boot.tomcat.TomcatWebServer [restartedMain] : Tomcat initialized with port 8080 (http)
+2026-04-12 19:35:13.476 INFO  o.a.coyote.http11.Http11NioProtocol [restartedMain] : Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-12 19:35:13.477 INFO  o.a.catalina.core.StandardService [restartedMain] : Starting service [Tomcat]
+2026-04-12 19:35:13.477 INFO  o.a.catalina.core.StandardEngine [restartedMain] : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-12 19:35:13.510 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [restartedMain] : Root WebApplicationContext: initialization completed in 520 ms
+2026-04-12 19:35:13.807 INFO  o.a.coyote.http11.Http11NioProtocol [restartedMain] : Starting ProtocolHandler ["http-nio-8080"]
+2026-04-12 19:35:13.817 INFO  o.s.boot.tomcat.TomcatWebServer [restartedMain] : Tomcat started on port 8080 (http) with context path '/'
+2026-04-12 19:35:13.821 INFO  com.xiaokui.BackendApplication [restartedMain] : Started BackendApplication in 1.121 seconds (process running for 1.53)
+2026-04-12 19:35:32.348 INFO  o.s.boot.tomcat.GracefulShutdown [SpringApplicationShutdownHook] : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-12 19:35:32.354 INFO  o.s.boot.tomcat.GracefulShutdown [tomcat-shutdown] : Graceful shutdown complete

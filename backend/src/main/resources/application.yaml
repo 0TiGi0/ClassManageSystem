@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/你的数据库名
+    username: postgres
+    password: root
+
+mybatis:
+  mapper-locations: classpath:com/xiaokui/mapper/*.xml
+  type-aliases-package: com.xiaokui.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+
