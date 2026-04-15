@@ -9,6 +9,7 @@ import java.util.List;
 public interface TeacherMapper {
     List<TeacherTable> pageLimit(Integer start, Integer size);
 
+    //无法创建抛异常
     Integer createTeacher(String name, Integer age, Boolean gender, Integer classId);
 
     Boolean delTeacher(Integer id);
@@ -16,4 +17,6 @@ public interface TeacherMapper {
     Boolean updateTeacher(Integer id, String name, Integer age, Boolean gender, Integer classId);
 
     List<TeacherTable> queryTeacher(Integer id, String name, String className);
+
+    Integer getTeacherSum();
 }

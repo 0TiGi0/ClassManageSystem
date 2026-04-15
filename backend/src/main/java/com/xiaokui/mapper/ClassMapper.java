@@ -10,6 +10,7 @@ import java.util.List;
 public interface ClassMapper {
     List<ClassTable> pageLimit(Integer start, Integer size);
 
+    //创建冲突抛异常
     Integer createClass(String name, Integer teacherId);
 
     Boolean delClass(Integer id);
@@ -20,4 +21,5 @@ public interface ClassMapper {
 
     List<StudentOnlyIdName> getMyAllStudent(Integer id);
 
+    Integer getClassSum();
 }

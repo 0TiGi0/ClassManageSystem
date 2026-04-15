@@ -28,4 +28,10 @@
         from all_student(#{id});
     </select>
 
+    <select id="getClassSum" resultType="java.lang.Integer">
+        select count(*)
+        from class c
+        where c.is_delete = false;
+    </select>
+
 </mapper>
