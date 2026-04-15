@@ -22,4 +22,10 @@
         select *
         from query_student(#{id}, #{name}, #{teacherName}, #{className});
     </select>
+
+    <select id="getStudentSum" resultType="java.lang.Integer">
+        select count(*)
+        from student s
+        where s.is_delete = false;
+    </select>
 </mapper>

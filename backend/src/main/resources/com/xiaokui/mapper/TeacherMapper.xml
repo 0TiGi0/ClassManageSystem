@@ -23,4 +23,10 @@
         from query_teacher(#{id}, #{name}, #{className});
     </select>
 
+    <select id="getTeacherSum" resultType="java.lang.Integer">
+        select count(*)
+        from teacher t
+        where t.is_delete = false;
+    </select>
+
 </mapper>
