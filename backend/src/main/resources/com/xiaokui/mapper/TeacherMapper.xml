@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaokui.mapper.TeacherMapper">
+    <select id="pageLimit" resultType="com.xiaokui.dto.TeacherTable">
+        select *
+        from page_teacher(#{start}, #{size});
+    </select>
+
+    <insert id="createTeacher">
+        select create_teacher(#{name}, #{age}, #{gender}, #{classId});
+    </insert>
+
+    <delete id="delTeacher">
+        select del_teacher(#{id});
+    </delete>
+
+    <update id="updateTeacher">
+        select update_teacher(#{id}, #{name}, #{age}, #{gender}, #{classId});
+    </update>
+
+    <select id="queryTeacher" resultType="com.xiaokui.dto.TeacherTable">
+        select *
+        from query_teacher(#{id}, #{name}, #{className});
+    </select>
+
+</mapper>

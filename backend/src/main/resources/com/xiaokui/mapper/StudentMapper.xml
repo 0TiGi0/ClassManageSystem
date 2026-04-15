@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaokui.mapper.StudentMapper">
+    <select id="pageLimit" resultType="com.xiaokui.dto.StudentTable">
+        select *
+        from page_student(#{start}, #{size});
+    </select>
+
+    <insert id="createStudent">
+        select create_student(#{name}, #{age}, #{gender}, #{classId});
+    </insert>
+
+    <delete id="delStudent">
+        select del_student(#{id});
+    </delete>
+
+    <update id="updateStudent">
+        select update_student(#{id}, #{name}, #{age}, #{gender}, #{classId});
+    </update>
+
+    <select id="queryStudent" resultType="com.xiaokui.dto.StudentTable">
+        select *
+        from query_student(#{id}, #{name}, #{teacherName}, #{className});
+    </select>
+</mapper>
