@@ -71,4 +71,9 @@ public class TeacherServiceImpl implements TeacherService {
             return new R<>(1, "教师查询失败", ret);
         }
     }
+
+    @Override
+    public R<Integer> getTeacherSum() {
+        return new R<>(0, "", teacherMapper.getTeacherSum());
+    }
 }

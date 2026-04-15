@@ -17,4 +17,6 @@ public interface TeacherService {
     R<Object> modifyTeacherById(Integer id, String name, Integer age, Boolean gender, Integer classId);
 
     R<List<TeacherTable>> getTeacher(Integer id, String name, String className);
+
+    R<Integer> getTeacherSum();
 }

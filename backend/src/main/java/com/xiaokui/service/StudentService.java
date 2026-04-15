@@ -17,4 +17,6 @@ public interface StudentService {
     R<Object> modifyStudentById(Integer id, String name, Integer age, Boolean gender, Integer classId);
 
     R<List<StudentTable>> getStudent(Integer id, String name, String teacherName, String className);
+
+    R<Integer> getStudentSum();
 }

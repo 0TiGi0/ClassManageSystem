@@ -18,7 +18,7 @@
     <!--添加一项输出配置（输出到文件）-->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--输出到文件的路径-->
-        <file>log/log.log</file>
+        <file>../log/log.log</file>
         <!--配置该输出器-->
         <encoder>
             <!--输出格式-->

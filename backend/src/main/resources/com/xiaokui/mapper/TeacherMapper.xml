@@ -3,24 +3,26 @@
 <mapper namespace="com.xiaokui.mapper.TeacherMapper">
     <select id="pageLimit" resultType="com.xiaokui.dto.TeacherTable">
         select *
-        from page_teacher(#{start}, #{size});
+        from page_teacher(#{start,jdbcType=INTEGER}, #{size,jdbcType=INTEGER});
     </select>
 
-    <insert id="createTeacher">
-        select create_teacher(#{name}, #{age}, #{gender}, #{classId});
-    </insert>
+    <select id="createTeacher">
+        select create_teacher(#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{gender,jdbcType=VARCHAR},
+                              #{classId,jdbcType=INTEGER});
+    </select>
 
-    <delete id="delTeacher">
-        select del_teacher(#{id});
-    </delete>
+    <select id="delTeacher">
+        select del_teacher(#{id,jdbcType=INTEGER});
+    </select>
 
-    <update id="updateTeacher">
-        select update_teacher(#{id}, #{name}, #{age}, #{gender}, #{classId});
-    </update>
+    <select id="updateTeacher">
+        select update_teacher(#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+                              #{gender,jdbcType=VARCHAR}, #{classId,jdbcType=INTEGER});
+    </select>
 
     <select id="queryTeacher" resultType="com.xiaokui.dto.TeacherTable">
         select *
-        from query_teacher(#{id}, #{name}, #{className});
+        from query_teacher(#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR});
     </select>
 
     <select id="getTeacherSum" resultType="java.lang.Integer">

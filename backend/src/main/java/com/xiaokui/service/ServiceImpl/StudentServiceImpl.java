@@ -71,4 +71,10 @@ public class StudentServiceImpl implements StudentService {
             return new R<>(1, "学生查询失败", ret);
         }
     }
+
+    @Override
+    public R<Integer> getStudentSum() {
+        return new R<>(0, "", studentMapper.getStudentSum());
+    }
+
 }
