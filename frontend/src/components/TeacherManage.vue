@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { pageTeacher, searchTeacher, createTeacher, updateTeacher, deleteTeacher } from '@/api/teacher'
+import {
+  pageTeacher,
+  searchTeacher,
+  createTeacher,
+  updateTeacher,
+  deleteTeacher,
+} from '@/api/teacher'
 import { getNotTeacherClasses } from '@/api/public'
 import type { FormInstance, FormRules } from 'element-plus'
 
@@ -10,10 +16,10 @@ interface TeacherRow {
   name: string
   age: number
   gender: boolean
-  class_name: string
-  student_num: number
-  create_time: string
-  update_time: string
+  className: string
+  studentNum: number
+  createTime: string
+  updateTime: string
 }
 
 const tableData = ref<TeacherRow[]>([])
@@ -52,7 +58,7 @@ async function loadData() {
   loading.value = true
   try {
     const res: any = await pageTeacher(currentPage.value, pageSize.value)
-    tableData.value = res.data.list || []
+    tableData.value = res.data || []
     if (tableData.value.length < pageSize.value) {
       total.value = (currentPage.value - 1) * pageSize.value + tableData.value.length
     } else {
@@ -73,9 +79,10 @@ async function handleSearch() {
   loading.value = true
   try {
     const params: Record<string, any> = {}
-    params[searchField.value] = searchField.value === 'id' ? Number(searchValue.value) : searchValue.value
+    params[searchField.value] =
+      searchField.value === 'id' ? Number(searchValue.value) : searchValue.value
     const res: any = await searchTeacher(params)
-    searchResults.value = res.data?.list || []
+    searchResults.value = res.data || []
     isSearchMode.value = true
     total.value = searchResults.value.length
     currentPage.value = 1
@@ -118,7 +125,7 @@ function handleSizeChange(size: number) {
 async function loadClassOptions() {
   try {
     const res: any = await getNotTeacherClasses()
-    classOptions.value = res.data?.list || []
+    classOptions.value = res.data || []
   } catch {}
 }
 
@@ -155,7 +162,7 @@ async function handleSubmit() {
     fd.append('age', String(form.age))
     fd.append('gender', String(form.gender))
     if (form.class_id !== undefined) {
-      fd.append('class_id', String(form.class_id))
+      fd.append('classId', String(form.class_id))
     }
     await updateTeacher(fd)
   } else {
@@ -163,10 +170,10 @@ async function handleSubmit() {
     fd.append('name', form.name)
     fd.append('age', String(form.age))
     fd.append('gender', String(form.gender))
-    fd.append('create_time', now)
-    fd.append('update_time', now)
+    fd.append('createTime', now)
+    fd.append('updateTime', now)
     if (form.class_id !== undefined) {
-      fd.append('class_id', String(form.class_id))
+      fd.append('classId', String(form.class_id))
     }
     await createTeacher(fd)
   }
@@ -229,10 +236,10 @@ onMounted(() => {
         <el-table-column prop="gender" label="性别" width="80">
           <template #default="{ row }">{{ formatGender(row.gender) }}</template>
         </el-table-column>
-        <el-table-column prop="class_name" label="班级名称" />
-        <el-table-column prop="student_num" label="班级学生人数" width="130" />
-        <el-table-column prop="create_time" label="创建时间" width="180" />
-        <el-table-column prop="update_time" label="修改时间" width="180" />
+        <el-table-column prop="className" label="班级名称" />
+        <el-table-column prop="studentNum" label="班级学生人数" width="130" />
+        <el-table-column prop="createTime" label="创建时间" width="180" />
+        <el-table-column prop="updateTime" label="修改时间" width="180" />
         <el-table-column label="操作" width="160" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" link size="small" @click="handleEdit(row)">修改</el-button>
@@ -255,7 +262,12 @@ onMounted(() => {
       </div>
     </div>
 
-    <el-drawer v-model="drawerVisible" :title="drawerTitle" size="400px" :close-on-click-modal="false">
+    <el-drawer
+      v-model="drawerVisible"
+      :title="drawerTitle"
+      size="400px"
+      :close-on-click-modal="false"
+    >
       <el-form ref="formRef" :model="form" :rules="rules" label-width="90px">
         <el-form-item label="姓名" prop="name">
           <el-input v-model="form.name" placeholder="请输入姓名" />

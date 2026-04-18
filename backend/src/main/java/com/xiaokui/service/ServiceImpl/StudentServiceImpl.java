@@ -21,7 +21,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public R<List<StudentTable>> getPage(Integer page, Integer size) {
-        return new R<>(0, "", studentMapper.pageLimit((page - 1) * size, size));
+        return new R<List<StudentTable>>(0, "", studentMapper.pageLimit((page - 1) * size, size));
     }
 
     @Override
@@ -30,10 +30,10 @@ public class StudentServiceImpl implements StudentService {
             studentMapper.createStudent(name, age, gender, classId);
         } catch (Exception e) {
             log.warn("学生添加失败 name={} ,age={} ,gender={} ,classId={}", name, age, gender, classId);
-            return new R<>(1, "学生添加失败", null);
+            return new R<Object>(1, "学生添加失败", null);
         }
         log.info("学生添加成功 name={} ,age={} ,gender={} ,classId={}", name, age, gender, classId);
-        return new R<>(0, "学生添加成功", null);
+        return new R<Object>(0, "学生添加成功", null);
     }
 
     @Override
@@ -41,10 +41,10 @@ public class StudentServiceImpl implements StudentService {
         Boolean ret = studentMapper.delStudent(id);
         if (ret == true) {
             log.info("学生删除成功 id={}", id);
-            return new R<>(0, "学生删除成功", null);
+            return new R<Object>(0, "学生删除成功", null);
         } else {
             log.warn("学生删除失败 id={}", id);
-            return new R<>(1, "学生删除失败", null);
+            return new R<Object>(1, "学生删除失败", null);
         }
     }
 
@@ -53,10 +53,10 @@ public class StudentServiceImpl implements StudentService {
         Boolean ret = studentMapper.updateStudent(id, name, age, gender, classId);
         if (ret == true) {
             log.info("学生修改成功 id={} ,name={} ,age={} ,gender={} ,classId={}", id, name, age, gender, classId);
-            return new R<>(0, "学生修改成功", null);
+            return new R<Object>(0, "学生修改成功", null);
         } else {
             log.warn("学生修改失败 id={} ,name={} ,age={} ,gender={} ,classId={}", id, name, age, gender, classId);
-            return new R<>(1, "学生修改失败", null);
+            return new R<Object>(1, "学生修改失败", null);
         }
     }
 
@@ -65,16 +65,16 @@ public class StudentServiceImpl implements StudentService {
         List<StudentTable> ret = studentMapper.queryStudent(id, name, teacherName, className);
         if (!ret.isEmpty()) {
             log.info("学生查询成功 ret={}", ret);
-            return new R<>(0, "学生查询成功", ret);
+            return new R<List<StudentTable>>(0, "学生查询成功", ret);
         } else {
             log.info("学生查询失败 id={} ,name={} ,teacherName={} ,className={}", id, name, teacherName, className);
-            return new R<>(1, "学生查询失败", ret);
+            return new R<List<StudentTable>>(1, "学生查询失败", ret);
         }
     }
 
     @Override
     public R<Integer> getStudentSum() {
-        return new R<>(0, "", studentMapper.getStudentSum());
+        return new R<Integer>(0, "", studentMapper.getStudentSum());
     }
 
 }

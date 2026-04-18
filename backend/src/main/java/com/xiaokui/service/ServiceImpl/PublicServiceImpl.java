@@ -19,11 +19,11 @@ public class PublicServiceImpl implements PublicService {
 
     @Override
     public R<List<ClassOnlyIdName>> getClassHaveTeacher() {
-        return new R<>(0, "", publicMapper.getClassHaveTeacher());
+        return new R<List<ClassOnlyIdName>>(0, "", publicMapper.getClassHaveTeacher());
     }
 
     @Override
     public R<List<ClassOnlyIdName>> getClassNoTeacher() {
-        return new R<>(0, "", publicMapper.getClassNoTeacher());
+        return new R<List<ClassOnlyIdName>>(0, "", publicMapper.getClassNoTeacher());
     }
 }

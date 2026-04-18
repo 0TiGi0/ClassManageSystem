@@ -8,10 +8,10 @@ import type { FormInstance, FormRules } from 'element-plus'
 interface ClassRow {
   id: number
   name: string
-  student_num: number
-  teacher_name: string
-  create_time: string
-  update_time: string
+  studentNum: number
+  teacherName: string
+  createTime: string
+  updateTime: string
 }
 
 const tableData = ref<ClassRow[]>([])
@@ -46,7 +46,7 @@ async function loadData() {
   loading.value = true
   try {
     const res: any = await pageClass(currentPage.value, pageSize.value)
-    tableData.value = res.data.list || []
+    tableData.value = res.data || []
     if (tableData.value.length < pageSize.value) {
       total.value = (currentPage.value - 1) * pageSize.value + tableData.value.length
     } else {
@@ -70,7 +70,7 @@ async function handleSearch() {
     params[searchField.value] =
       searchField.value === 'id' ? Number(searchValue.value) : searchValue.value
     const res: any = await searchClass(params)
-    searchResults.value = res.data?.list || []
+    searchResults.value = res.data || []
     isSearchMode.value = true
     total.value = searchResults.value.length
     currentPage.value = 1
@@ -113,7 +113,7 @@ function handleSizeChange(size: number) {
 async function loadClassOptions() {
   try {
     const res: any = await getNotTeacherClasses()
-    classOptions.value = res.data?.list || []
+    classOptions.value = res.data || []
   } catch {}
 }
 
@@ -144,16 +144,16 @@ async function handleSubmit() {
     fd.append('id', String(form.id))
     fd.append('name', form.name)
     if (form.teacher_id !== undefined) {
-      fd.append('teacher_id', String(form.teacher_id))
+      fd.append('teacherId', String(form.teacher_id))
     }
     await updateClass(fd)
   } else {
     const now = new Date().toISOString().replace('T', ' ').slice(0, 19)
     fd.append('name', form.name)
-    fd.append('create_time', now)
-    fd.append('update_time', now)
+    fd.append('createTime', now)
+    fd.append('updateTime', now)
     if (form.teacher_id !== undefined) {
-      fd.append('teacher_id', String(form.teacher_id))
+      fd.append('teacherId', String(form.teacher_id))
     }
     await createClass(fd)
   }
@@ -208,10 +208,10 @@ onMounted(() => {
       <el-table :data="currentDisplayData" v-loading="loading" stripe style="width: 100%">
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="name" label="班级名称" />
-        <el-table-column prop="student_num" label="班级学生人数" width="130" />
-        <el-table-column prop="teacher_name" label="指导老师" />
-        <el-table-column prop="create_time" label="创建时间" width="180" />
-        <el-table-column prop="update_time" label="修改时间" width="180" />
+        <el-table-column prop="studentNum" label="班级学生人数" width="130" />
+        <el-table-column prop="teacherName" label="指导老师" />
+        <el-table-column prop="createTime" label="创建时间" width="180" />
+        <el-table-column prop="updateTime" label="修改时间" width="180" />
         <el-table-column label="操作" width="160" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" link size="small" @click="handleEdit(row)">修改</el-button>
